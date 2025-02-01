@@ -47,7 +47,6 @@ public class PlayerController : MonoBehaviour
 
         if (other.CompareTag("Barrier")) {
             rbVelocity = 0f;
-            
             Debug.Log(rbVelocity);
         }
     } 
