@@ -6,9 +6,11 @@ public class PlayerController : MonoBehaviour
 {
     // Constants
     private float MOST_LEFT_LANE = -2;
-     private float MOST_RIGHT_LANE = 2;
+    private float MOST_RIGHT_LANE = 2;
+
+    // Variables
     [SerializeField] private Vector3 displacement = new Vector3(3, 0, 0);
-    [SerializeField] private float speed = 10;
+    [SerializeField] private float horizontalShiftSpeed = 10;
     public Rigidbody2D rb;
     public float rbVelocity = 2f;
     private Vector3 targetPosition;
@@ -33,7 +35,7 @@ public class PlayerController : MonoBehaviour
             currentLane++;
         }
 
-        float rbSnapX = Mathf.Lerp(rb.position.x, targetPosition.x, speed * Time.deltaTime);
+        float rbSnapX = Mathf.Lerp(rb.position.x, targetPosition.x, horizontalShiftSpeed * Time.deltaTime);
         rb.position = new Vector2(rbSnapX, rb.position.y);
     }
 
