@@ -12,13 +12,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Vector3 displacement = new Vector3(3, 0, 0);
     [SerializeField] private float horizontalShiftSpeed = 10;
     public Rigidbody2D rb;
-    public float rbVelocity = 2f;
+    public float rbVelocity = 4f;
+    public Canvas canvas;
+    public AudioClip audioClip;
+    public AudioSource audioSource;
     private Vector3 targetPosition;
     private Vector3 previousPosition;
     private float currentLane = 0;
 
     void Start() {
         previousPosition = rb.position;
+        canvas.enabled = false;
     }
  
     void Update()
@@ -49,7 +53,11 @@ public class PlayerController : MonoBehaviour
 
         if (other.CompareTag("Barrier")) {
             rbVelocity = 0f;
+            audioSource.PlayOneShot(audioClip);
+            canvas.enabled = true;
+            
             Debug.Log(rbVelocity);
+            
         }
     } 
 }
