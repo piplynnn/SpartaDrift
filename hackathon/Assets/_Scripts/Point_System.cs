@@ -11,6 +11,8 @@ public class Point_System : MonoBehaviour
     public Text scoreUI;
     public bool waiter;
     public int multi;
+    
+    public PlayerController player;
    
 
 
@@ -26,7 +28,7 @@ public class Point_System : MonoBehaviour
     public IEnumerator Addpoint()
    
     {
-        if (waiter == true)
+        if (waiter == true && player.done)
         {
             displayScore += multi;
             scoreUI.text = "Score: " + displayScore.ToString();
