@@ -4,5 +4,5 @@ SpartaDrift challenges players to avoid obstacles while driving on an endless ro
 
 
 # Instructions
-**Press A to move left and Press D to move Right**
+**Press A to move left and Press D to move Right**\
 Game Link: https://piplynnn.itch.io/hackathon
