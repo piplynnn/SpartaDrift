@@ -43,7 +43,7 @@ public class Road : MonoBehaviour
                 randomObstacle.transform.position = new Vector3(lanePositions[getRandomNumber(0, lanePositions.Length - 1)], getRandomNumber(road.transform.position.y - (31.79 / 2), road.transform.position.y + (31.79 / 2)), transform.position.z);
                 generatedObstaclePositions[i] = randomObstacle.transform.position;
                 print((generatedObstaclePositions[i] - transform.position).magnitude);
-            } while ((generatedObstaclePositions[i] - transform.position).magnitude < 4 && !verifyObstaclePositions());
+            } while ((generatedObstaclePositions[i] - transform.position).magnitude < 10 && !verifyObstaclePositions());
         }
     }
 
