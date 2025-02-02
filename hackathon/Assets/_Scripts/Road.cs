@@ -19,7 +19,7 @@ public class Road : MonoBehaviour
         return (int) Random.Range((int)start, (int)end);
     }
     GameObject getRandomObstacle() {
-        return obstacles[(int)getRandomNumber(0, obstacles.Length - 1)];
+        return obstacles[(int)getRandomNumber(0, obstacles.Length)];
     }
 
     bool verifyObstaclePositions() {
@@ -40,7 +40,9 @@ public class Road : MonoBehaviour
             GameObject randomObstacle = Instantiate(getRandomObstacle());
             generatedObstacles[i] = randomObstacle;
             do {
-                randomObstacle.transform.position = new Vector3(lanePositions[getRandomNumber(0, lanePositions.Length - 1)], getRandomNumber(road.transform.position.y - (31.79 / 2), road.transform.position.y + (31.79 / 2)), transform.position.z);
+                int randomLane = getRandomNumber(0, 5);
+                print(randomLane);
+                randomObstacle.transform.position = new Vector3(lanePositions[randomLane], getRandomNumber(road.transform.position.y - (31.79 / 2), road.transform.position.y + (31.79 / 2)), transform.position.z);
                 generatedObstaclePositions[i] = randomObstacle.transform.position;
                 print((generatedObstaclePositions[i] - transform.position).magnitude);
             } while ((generatedObstaclePositions[i] - transform.position).magnitude < 10 && !verifyObstaclePositions());
