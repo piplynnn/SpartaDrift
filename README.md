@@ -6,7 +6,7 @@ SpartaDrift challenges players to avoid obstacles while driving on an endless ro
 # Instructions
 - **Press A to move left and Press D to move Right**
 - **Green Arrows and White Boxes represent Speed Boosts**
-- **Every other object is a obstacle that crashes your car**
+- **Every other object is an obstacle that crashes your car**
 
 **Game Link**
 https://piplynnn.itch.io/hackathon
