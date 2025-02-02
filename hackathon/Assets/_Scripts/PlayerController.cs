@@ -21,7 +21,8 @@ public class PlayerController : MonoBehaviour
     public AudioClip gain;
     public AudioSource audioSource;
 
-    public Point_System points;
+    public Point_System point1;
+    public Point_System point2;
 
 
     public bool done;
@@ -76,7 +77,8 @@ public class PlayerController : MonoBehaviour
             rbVelocity += 2f;
             audioSource.PlayOneShot(gain);
             Debug.Log(rbVelocity);
-            points.multi += 1;
+            point1.multi += 1;
+            point2.multi += 1;
         }
 
         if (other.CompareTag("Barrier")) {

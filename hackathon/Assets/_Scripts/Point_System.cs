@@ -5,12 +5,14 @@ using UnityEngine.UI;
 
 public class Point_System : MonoBehaviour
 {
+    
     public int displayScore;
     public Text scoreUI;
     public bool waiter;
     public int multi;
     
     public PlayerController player;
+    
    
 
 
