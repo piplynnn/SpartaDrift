@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
 
     void Start() {
         previousPosition = rb.position;
+        targetPosition = rb.position;
         canvas.enabled = false;
     }
  
