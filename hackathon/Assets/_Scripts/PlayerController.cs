@@ -17,17 +17,24 @@ public class PlayerController : MonoBehaviour
     public Canvas canvas;
     public AudioClip audioClip;
     public AudioClip screech;
+
+    public AudioClip gain;
     public AudioSource audioSource;
-    public GameObject particleSystem;
+
+
+    public bool done;
     private Vector3 targetPosition;
     private Vector3 previousPosition;
     private float currentLane = 0;
     private float targetRotation = 0;
+    
+    
 
     void Start() {
         previousPosition = rb.position;
         targetPosition = rb.position;
         canvas.enabled = false;
+        done = true;
     }
  
     void Update()
@@ -39,14 +46,12 @@ public class PlayerController : MonoBehaviour
             previousPosition = targetPosition;
             targetRotation = 20f;
             audioSource.PlayOneShot(screech);
-            Instantiate(particleSystem, transform.position, Quaternion.identity);
             currentLane--;
         } else if (Input.GetKeyDown(KeyCode.D) && currentLane < MOST_RIGHT_LANE) {
             targetPosition = previousPosition + displacement;
             previousPosition = targetPosition;
             targetRotation = -20f;
             Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z - 3f);
-            Instantiate(particleSystem, spawnPosition, Quaternion.identity);
             audioSource.PlayOneShot(screech);
             currentLane++;
         }
@@ -67,6 +72,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Speed"))
         {
             rbVelocity += 2f;
+            audioSource.PlayOneShot(gain);
             Debug.Log(rbVelocity);
         }
 
@@ -74,6 +80,8 @@ public class PlayerController : MonoBehaviour
             rbVelocity = 0f;
             audioSource.PlayOneShot(audioClip);
             canvas.enabled = true;
+            done = false;
+            
             
             Debug.Log(rbVelocity);
             
